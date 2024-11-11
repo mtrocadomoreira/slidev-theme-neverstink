@@ -5,6 +5,14 @@ routerMode: hash
 title: Base Template
 theme: ./
 neversink_string: "Neversink Example Deck"
+mdc: true
+preTitle: Here's a presentation with a really really long title that spans several lines
+authors:  # First author should be the presenter
+  - First Author: ["Institution 1", "Institution 2"]
+  - Second Author: ["Institution 3"]
+  - Third Author: ["Institution 1", "Institution 3"] 
+meeting: "presentation meeting"
+date: "26/10/2024"
 ---
 
 # Neversink
@@ -12,6 +20,43 @@ neversink_string: "Neversink Example Deck"
 A [Slidev](https://sli.dev) theme designed by **Todd Gureckis**   
 _New York University_ <a href="https://todd.gureckislab.org" class="ns-c-iconlink"><mdi-open-in-new /></a>  
 
+
+---
+layout: default_new
+---
+
+# Extras
+
+In addition to these custom layouts, the **Neversink** theme includes a few custom components that can be used in your slides. These include sticky notes, speech bubbles, cute icons, QR codes, and more.  The next few slides walks through them:
+
+<div class="ns-c-tight">
+
+- admonitions
+- sticky notes
+- speech bubbles
+- cute icons
+- QR codes
+</div>
+
+::footnotes{separator}
+
+  :::footnote{number=1}
+  A footnote
+  :::
+  :::footnote{number=2}
+  [Picsum]("https://picsum.photos/")
+  :::
+::
+
+
+---
+layout: section_new
+sectionNumber: 2 
+---
+
+# This is another section
+
+## This is a subtitle
 
 
 ---
@@ -1121,9 +1166,9 @@ dragPos:
   "'admon'": 55,300,287,106
 ---
 
-<Admonition title="V-draggable" color='teal-light' width="300px" v-drag="[93,303,300,145,-14]">
+<!-- <Admonition title="V-draggable" color='teal-light' width="300px" v-drag="[93,303,300,145,-14]">
 If you want to `v-drag` an admonition, you should set the width to a fixed value.
-</Admonition>
+</Admonition> -->
 
 :: title ::
 

@@ -93,6 +93,7 @@ onMounted(() => {
 </script>
 
 <!-- an example footer for pages -->
+<!-- 
 <template>
   <footer v-if="$frontmatter.slide_info !== false" class="absolute bottom-1 right-1 left-0 p-2 pr-3 full-width z-10">
     <div class="absolute bottom-0 right-0 p-2 pr-2">
@@ -103,5 +104,5 @@ onMounted(() => {
     </div>
   </footer>
 </template>
-
+-->
 <style scoped></style>
