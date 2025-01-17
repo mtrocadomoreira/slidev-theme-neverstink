@@ -20,15 +20,22 @@ const colorscheme = computed(() => {
 })
 </script>
 <template>
-  <div class="slidev-layout quote">
-    <div class="my-auto">
-      <div class="p-5 w-95% ml-auto mr-auto rounded-lg border-1px quotecolor" :class="colorscheme">
-        <div class="leading-normal" :class="quotesize">
-          <slot name="default" /><br />
-          <div v-if="author !== null" class="quote_author" :class="authorsize">- {{ author }}</div>
+  <div class="slidev-layout slidev-layout--vertlines">
+    <div class="slidev-layout section">
+      <div class="slidev-layout section section-container quote">
+        <div class="leading-normal pl-3.5em pr-3.5em">
+          <div class="quote_text" :class="quotesize">
+            <slot name="default" /><br />
+          </div>
+          <div v-if="author !== null" class="quote_author" :class="authorsize">&mdash; {{ author }}</div>
         </div>
       </div>
     </div>
+    <Footer 
+        :author="Object.keys($slidev.configs.authors[Object.keys($slidev.configs.authors)[0]])[0]" 
+        :meeting="$slidev.configs.meeting"
+        :date="$slidev.configs.date">
+    </Footer>
   </div>
 </template>
 
@@ -47,16 +54,8 @@ const colorscheme = computed(() => {
   text-align: right;
 }
 
-.slidev-layout.quote {
-  margin-top: 2em;
-  padding-left: 1em;
+.quote_text {
+  font-family: var(--neversink-quote-font);
 }
 
-.slidev-layout.quote p {
-  font-size: 1.5em;
-  font-family: var(--neversink-quote-font);
-  line-height: 1.2em;
-  font-weight: 400;
-  text-align: left;
-}
 </style>

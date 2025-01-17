@@ -1,12 +1,11 @@
 ---
 colorSchema: light
+aspectRatio: 16/9
 layout: cover
 routerMode: hash
-title: Base Template
+title: This is the title defined in frontmatter
 theme: ./
-neversink_string: "Neversink Example Deck"
 mdc: true
-preTitle: Here's a presentation with a really really long title that spans several lines
 authors:  # First author should be the presenter
   - First Author: ["Institution 1", "Institution 2"]
   - Second Author: ["Institution 3"]
@@ -15,14 +14,13 @@ meeting: "presentation meeting"
 date: "26/10/2024"
 ---
 
-# Neversink
+# This is the title of the talk
 
-A [Slidev](https://sli.dev) theme designed by **Todd Gureckis**   
-_New York University_ <a href="https://todd.gureckislab.org" class="ns-c-iconlink"><mdi-open-in-new /></a>  
+## This is a subtitle
 
 
 ---
-layout: default_new
+layout: default
 ---
 
 # Extras
@@ -50,26 +48,81 @@ In addition to these custom layouts, the **Neversink** theme includes a few cust
 
 
 ---
-layout: section_new
-sectionNumber: 2 
+layout: section
+sectionNumber: 2
 ---
 
-# This is another section
+# This is a new section
 
-## This is a subtitle
+## This is a subtitle that is also really really long, look at this
+
+### And another subsubtitle
+
+---
+layout: two-cols
+---
+
+# Extras
+
+I want to be out
+
+:: footnotes{separator}
+  ::: footnote{number=3}
+  Another one
+  :::
+::
+
+
+:: left ::
+
+In addition to these custom layouts, the **Neversink** theme includes a few custom components that can be used in your slides. These include sticky notes, speech bubbles, cute icons, QR codes, and more.  The next few slides walks through them:
+
+```python
+import stuff as stf
+what = 5
+```
+
+:: footnotes
+  ::: footnote{number=1}
+  Hello
+  :::
+
+::
+
+:: right ::
+
+## What is this?
+
+A second columns.
+
+:: footnotes
+  ::: footnote{number=2}
+  Hello again
+  :::
+::
+
+---
+layout: default
+---
+
+# Extras
+
+In addition to these custom layouts, the **Neversink** theme includes a few custom components that can be used in your slides. These include sticky notes, speech bubbles, cute icons, QR codes, and more.  The next few slides walks through them:
+
+```python
+import stuff as stf
+what = 5
+```
+
 
 
 ---
-layout: side-title
+layout: default
 color: amber
 align : rm-lm
 ---
 
-:: title ::
-
 # Slidev Neversink Theme
-
-:: content ::
 
 Neversink is theme for education and academic presentations.  It is designed to be bright, flat, minimal, and easy to read.  It is based on the default Slidev theme but with some additional features and color schemes that have reference in the [metropolis](https://github.com/matze/mtheme) Beamer theme among others.
 
@@ -80,7 +133,6 @@ layout: default
 ---
 
 # Why use it?
-
 
 - Neversink has several configurable ==layouts== that build upon the Slidev defaults and which make it easier to quickly throw together common slide layouts without having to write a lot of custom CSS/HTML.
 
@@ -220,281 +272,6 @@ Hello, I'm a **yellowish sticky note** using `amber-light`.
 </StickyNote>
 
 
----
-layout: side-title
-color: emerald-light
-align: rm-lm
-titlewidth: is-3
----
-
-<StickyNote color="emerald-light" textAlign="left" width="180px"  v-drag="[719,291,180,180,16]">
-
-Don't worry if you don't understand all the details, yet we are still talking about **color schemes**.
-</StickyNote>
-
-
-:: title ::
-# Color schemes
-
-
-:: content ::
-
-Or we can use the `emerald-light` scheme in a slide layout to set the overall color and style of a slide with a matching sticky note:
-
-```md
----
-layout: side-title
-color: emerald-light
-align: rm-lm
-titlewidth: is-3
----
-```
-
----
-layout: top-title
-color: amber
-align: l
----
-
-:: title ::
-# Layouts
-
-:: content ::
-
-The theme includes many layouts. Layouts set the overall structure of the page.  For example, this slide is using the `top-title` layout with the `amber` color scheme.  You can see the frontmatter for this slide below:
-
-```md
----
-layout: top-title
-color: amber
-align: l
----
-```
-
-The previous slide used the `side-title` layout with the `emerald-light` color scheme.  You can see the frontmatter for that slide below:
-
-```md
----
-layout: side-title
-color: emerald-light
-align: rm-lm
-titlewidth: is-3
----
-```
-
-
----
-layout: top-title-two-cols
-color: amber-light
-align: l-lt-lt
----
-
-:: title ::
-
-# Two things about layouts
-
-
-
-:: left ::
-
-There are two important parts of slides to know about.
-
-## Frontmatter 
-
-First is **frontmatter**, which are configuration options
-that appear at the start of each slide (see [Slidev docs](https://sli.dev/guide/syntax#frontmatter-layouts)).  These configure things like
-alignment, color, and spacing:
-
-```md
----
-layout: top-title
-color: sky
-align: l
----
-```
-
-:: right ::
-
-# Slots 
-
-The other aspect is **slots**.  Slots are a basic part of [Vue.js](https://vuejs.org/guide/components/slots.html).  In Slidev slots can be marked using `:: slotname ::` and then filled in with content.  For example, the `:: left ::` and `:: right ::` slots on this slide are filled with content.
-
-Slots effectively help you map parts of your slide to different parts of a layout.  The most common case is to say which content appears in the left column and which appears in the right column. But different layouts can have different slots and different content.
-
-
----
-layout: top-title
-color: amber-light
-align: lt
----
-
-:: title ::
-
-# Available Layouts
-
-:: content ::
-
-The available layouts in **Neversink** currently are:  
-
-
-<div class="ns-c-tight">
-
-<div class='flex flex-wrap'>
-
-<div class='w-1/3'>
-
-- `cover`
-- `intro`
-- `default`
-- `section`
-- `quote`
-- `full`
-- `credits`
-</div>
-
-<div class='w-1/3'>
-
-
-- `two-cols-title`
-- `top-title`
-- `top-title-two-cols`
-- `side-title`
-
-</div>
-
-<div class='w-1/3'>
-
-- `image-right`
-- `image-left`
-- `image`
-- `iframe-right`
-- `iframe-left`
-- `iframe`
-- `none`
-- `end`
-- `fact` 
-
-</div>
-</div>
-</div>
-
-
-We will step through these one by one showing several examples
-and how to configure the frontmatter for each.
-
-
----
-layout: cover
----
-
-# This is the `cover` layout
-
-**Todd Gureckis**   
-_New York University_ <a href="https://todd.gureckislab.org" class="ns-c-iconlink"><mdi-open-in-new /></a>  
-
-:: note ::
-
-<div class="fw-200" >
-
-\* Optional `:: note ::` slot for mentioning ==notes== at the bottom.
-
-</div>
-
-
----
-layout: cover
-color: dark
----
-
-# This is the `cover` layout
-
-**Todd Gureckis**   
-_New York University_ <a href="https://todd.gureckislab.org" class="ns-c-iconlink"><mdi-open-in-new /></a>  
-
-:: note ::
-
-<div class="fw-200" >
-
-\* Here we set `color: dark` in the frontmatter.
-
-</div>
-
-
----
-layout: cover
-color: amber
----
-
-# This is the `cover` layout
-
-**Todd Gureckis**   
-_New York University_ <a href="https://todd.gureckislab.org" class="ns-c-iconlink"><mdi-open-in-new /></a>  
-
-
-:: note ::
-
-<div class="fw-200">
-
-\* Here we set `color: amber` in the frontmatter.
-
-</div>
-
-
----
-layout: cover
-color: amber-light
----
-
-# This is the `cover` layout
-
-**Todd Gureckis**   
-_New York University_ <a href="https://todd.gureckislab.org" class="ns-c-iconlink"><mdi-open-in-new /></a>  
-
-
-:: note ::
-
-<div class="fw-200" >
-
-\* Here we set `color: amber-light` in the frontmatter.  Notice how the color scheme brings along many of the elements on the page.
-
-</div>
-
-
----
-layout: cover
-color: pink
----
-
-### This is the `cover` layout with a longer title for your talk you just use more `#`s
-
-**Todd Gureckis**   
-_New York University_ <a href="https://todd.gureckislab.org" class="ns-c-iconlink"><mdi-open-in-new /></a>  
-
-
-:: note ::
-
-<div class="fw-200" >
-
-\* Here we set `color: pink` in the frontmatter.  Different choices convey a different vibe for the intro of your talk.  There's lots of choices available.
-
-</div>
-
-
----
-layout: intro
-color: emerald-light
----
-
-# This is the `intro` layout
-
-**Todd Gureckis**   
-_New York University_ <a href="https://todd.gureckislab.org" class="ns-c-iconlink"><mdi-open-in-new /></a>  
-
-
-<br />
-
-This is like the cover slide but with a little less decoration.
-It also has a frontmatter option of `color: emerald-light`.
 
 ---
 layout: default
@@ -558,57 +335,393 @@ color: light
 
 And of course you don't have to change the color scheme every slide! 
 
-
 ---
-layout: section
----
-
-# The `section` layout
-
-This is a section slide.  It can be use to make a noticable point or break between sections.
-
-
----
-layout: section
-color: navy
+layout: default
 ---
 
-# The `section` layout
-<hr>
-It has a `hr` which is color matched to the color scheme.  For example, this slide is using the `navy` color scheme and the line is white.
+# Extras
 
+In addition to these custom layouts, the **Neversink** theme includes a few custom components that can be used in your slides. These include sticky notes, speech bubbles, cute icons, QR codes, and more.  The next few slides walks through them:
 
----
-layout: section
-color: indigo
----
+<div class="ns-c-tight">
 
-# The `section` layout
-<hr>
-
-This is `color: indigo` and the line and font is a light indigo shade.
-
-
----
-layout: section
-color: navy
----
-
-<div class="w-2/3 ml-30">
-
-# The `section` layout
-<hr>
-
-<span class='text-amber-300'>
-You can use HTML and inline CSS to modify the look and feel.
-</span>
-
+- admonitions
+- sticky notes
+- speech bubbles
+- cute icons
+- QR codes
 </div>
+
+
+---
+layout: two-cols
+columns: is-6
+title: Admonitions
+dragPos:
+  admon: Left,Top,Width,Height,Rotate
+  "'admon'": 55,300,287,106
+---
+
+<!-- <Admonition title="V-draggable" color='teal-light' width="300px" v-drag="[93,303,300,145,-14]">
+If you want to `v-drag` an admonition, you should set the width to a fixed value.
+</Admonition> -->
+
+# Admonitions
+
+:: left ::
+
+- Admonitions are boxes that you can use to call out things.
+
+<Admonition title="Custom title" color='amber-light'>
+This is my admon message
+</Admonition>
+
+:: right ::
+
+<AdmonitionType type='note' >
+This is note text
+</AdmonitionType>
+
+<!--
+> [!note]
+> This is note text
+-->
+
+<AdmonitionType type='important' >
+This is important text
+</AdmonitionType>
+
+<AdmonitionType type='tip' >
+This is a tip
+</AdmonitionType>
+
+<AdmonitionType type='warning' >
+This is a tip
+</AdmonitionType>
+
+<AdmonitionType type='caution' >
+This is warning text
+</AdmonitionType>
+
+---
+layout: two-cols
+columns: is-6
+title: Bubbles
+---
+
+<SpeechBubble position="l" color='sky' shape="round"  v-drag="[83,364,274,109]">
+
+Hello, I'm a **speech bubble**! I'm a longer speech bubble. I'm still going.
+</SpeechBubble>
+
+# Bubbles
+
+:: left ::
+
+- Bubbles are moveable elements that act as speech bubbles
+- They can be configured for where you want the arrow to point
+- The can be move around if you enable `v-drag` on the element
+
+:: right ::
+
+<SpeechBubble position="bl" color='amber-light' shape="round">
+
+Hello, I'm a **speech bubble**! I'm a longer speech bubble. I'm still going.
+Hello, I'm a **speech bubble**! I'm a longer speech bubble. I'm still going.
+Hello, I'm a **speech bubble**! I'm a longer speech bubble. I'm still going.
+</SpeechBubble>
+
+---
+layout: default
+title: Sticky Notes
+---
+
+<StickyNote color="amber-light" textAlign="left" width="180px" title="Title" v-drag="[71,308,185,171]">
+
+Hello, I'm a **sticky note**.
+</StickyNote>
+
+<StickyNote color="sky-light" textAlign="left" width="180px" title="This is my title" v-drag="[494,170,180,180,-15]">
+
+Hello, I'm also a **sticky note** but am blue sky title.
+</StickyNote>
+
+<StickyNote color="pink-light" textAlign="left" width="180px"  v-drag="[707,277,185,171,8]">
+
+Hello, I'm also a **sticky note** but I lack a title.
+</StickyNote>
+
+# Sticky Notes
+
+- Sticky notes are moveable elements you can use for notes.
+- Syntax is
+
+```js
+<StickyNote color="amber-light" textAlign="left" width="180px" title="Title" v-drag>
+  Hello, I'm a **sticky note**.
+</StickyNote>
+```
+
+---
+layout: default
+title: Kawaii 1
+---
+
+# Kawaii
+
+- Kawaii is a Japanese term that means cute
+
+<IceCream :size="80" mood="sad" color="#FDA7DC" />
+<IceCream :size="80" mood="shocked" color="#FDA7DC" />
+<IceCream :size="80" mood="happy" color="#FDA7DC" />
+<IceCream :size="80" mood="blissful" color="#FDA7DC" />
+<IceCream :size="80" mood="lovestruck" color="#FDA7DC" />
+<IceCream :size="80" mood="excited" color="#FDA7DC" />
+<IceCream :size="80" mood="ko" color="#FDA7DC" /><br/>
+
+<BackPack :size="80" mood="sad" color="#FFD882" />
+<BackPack :size="80" mood="shocked" color="#FFD882" />
+<BackPack :size="80" mood="happy" color="#FFD882"/>
+<BackPack :size="80" mood="blissful" color="#FFD882" />
+<BackPack :size="80" mood="lovestruck" color="#FFD882" />
+<BackPack :size="80" mood="excited" color="#FFD882" />
+<BackPack :size="80" mood="ko" color="#FFD882" /><br/>
+
+<Cat :size="80" mood="sad" color="#FFD882" />
+<Cat :size="80" mood="shocked" color="#FFD882" />
+<Cat :size="80" mood="happy" color="#FFD882"/>
+<Cat :size="80" mood="blissful" color="#FFD882" />
+<Cat :size="80" mood="lovestruck" color="#FFD882" />
+<Cat :size="80" mood="excited" color="#FFD882" />
+<Cat :size="80" mood="ko" color="#FFD882" /><br/>
+
+<Browser :size="50" mood="lovestruck" color="#61DDBC" />
+<Mug :size="50" mood="lovestruck" color="#61DDBC" />
+<Planet :size="50" mood="lovestruck" color="#61DDBC" />
+<SpeechBubbleGuy :size="50" mood="lovestruck" color="#d3d3d3" />
+<Ghost :size="50" mood="blissful" color="#E0E4E8" />
+<CreditCard :size="50" mood="blissful" color="#E0E4E8" />
+
+---
+layout: default
+---
+
+# In-line QR Codes
+
+- Send people to a url with a easy to configure QR code
+
+```vue
+<QRCode value="https://gureckislab.org" :size="200" render-as="svg" />
+```
+
+<br />
+Result:
+
+<QRCode value="https://gureckislab.org" :size="200" render-as='svg'/>
+
+
+
+---
+layout: default
+title: Lines
+---
+
+# Lines
+
+<Line :x1=0 :y1=0 :x2=200 :y2=200 :width=2 color='red' v-drag="[326,136,250,250]" />
+
+---
+layout: default
+side: left
+color: violet
+align: rm-lt
+---
+
+# Code example
+
+<SpeechBubble position="br" shape="round" borderWidth="0" animation="float" v-drag="[615,37,261,83]">
+
+Slidev is great at code formatting!
+</SpeechBubble>
+
+# <mdi-code-braces /> Code
+
+<IceCream :size="80" mood="excited" color="#FDA7DC" v-drag="[828,140,50,80]" />
+
+
+Plain javascript:
+
+```js
+console.log('Hello, World!')
+```
+
+Highlight lines 2 and 3:
+
+```ts {2,3}
+function helloworld() {
+  console.log('Hello, World!')
+  console.log('Hello, World!')
+  console.log('Hello, World!')
+}
+```
+
+Crazy clicking through
+
+```ts {2,3|5|all}
+function helloworld() {
+  console.log('Hello, World!')
+  console.log('Hello, World!')
+  console.log('Hello, World!')
+  console.log('Hello, World!')
+  console.log('Hello, World!')
+  console.log('Hello, World!')
+}
+```
+
+---
+layout: default
+side: left
+color: violet
+align: rm-lt
+title: Code Example
+---
+
+# Code Example
+
+
+# <mdi-code-braces /> Code
+
+More cool code stuff
+
+Scrollable with clicks 🤯
+
+```ts {2|3|7|12}{maxHeight:'100px'}
+function helloworld() {
+  console.log('Hello, World 1!')
+  console.log('Hello, World 2!')
+  console.log('Hello, World 3!')
+  console.log('Hello, World 4!')
+  console.log('Hello, World 5!')
+  console.log('Hello, World 6!')
+  console.log('Hello, World 7!')
+  console.log('Hello, World 8!')
+  console.log('Hello, World 9!')
+  console.log('Hello, World 10!')
+  console.log('Hello, World 11!')
+}
+```
+
+You can even edit the code in the browser
+
+```ts {monaco}
+console.log('HelloWorld')
+```
+
+You can even run the code in the browser
+
+```ts {monaco-run} {showOutputAt:'+1'}
+function distance(x: number, y: number) {
+  return Math.sqrt(x ** 2 + y ** 2)
+}
+console.log(distance(3, 4))
+```
+
+---
+layout: default
+side: left
+color: lime
+align: rm-lt
+title: LaTeX Example
+---
+
+# LaTeX Example
+
+# <mdi-math-integral-box /> LaTeX Equations
+
+Yeah it does this fine
+
+<Mug :size="80" mood="excited" color="#FDA7DC" v-drag="[784,126,77,80]" />
+
+
+Inline equations: $\sqrt{3x-1}+(1+x)^2$
+
+Block rendering:
+$$
+\begin{array}{c}
+
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
+= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+
+\nabla \cdot \vec{\mathbf{B}} & = 0
+
+\end{array}
+$$
+
+Line highlighting with clicks!
+
+$$
+{1|3|all}
+\begin{array}{c}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
+= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} & = 0
+\end{array}
+$$
+
+---
+layout: default
+side: left
+color: sky
+titlewidth: is-4
+align: rm-cm
+---
+
+# Mermaid Diagrams
+
+
+Everyone is talking about this
+
+
+```mermaid
+sequenceDiagram
+  Alice->John: Hello John, how are you?
+  Note over Alice,John: A typical interaction
+```
+
+---
+layout: default
+side: left
+color: sky
+align: rm-cm
+title: Mermaid Example
+---
+
+# Mermaid Diagrams
+
+
+Everyone is talking about this
+
+```mermaid {theme: 'neutral', scale: 0.8}
+graph TD
+B[Text] --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+```
+
+A mermaid diagram with two circles side by side horizontally with an arrow pointing from the left circle to the right circle
+
+```mermaid {theme: 'neutral', scale: 0.8}
+graph LR
+A([Circle 1]) --> B((Circle 2))
+```
 
 ---
 layout: quote
-color: sky-light
-quotesize: text-sm
+color: indigo-light
+quotesize: text-xl
 authorsize: text-sm
 author: "Todd Gureckis"
 ---
@@ -620,6 +733,7 @@ author: "Todd Gureckis"
 ---
 layout: full
 title: Full Layout
+color: light
 ---
 
 <div class='border-1px v-full h-full p-5'>
@@ -719,136 +833,11 @@ This is an example of using unocss atomic classes to put three figures side by s
 
 
 ---
-layout: credits
-color: light
----
-
-<div class="grid text-size-4 grid-cols-3 w-3/4 gap-y-10 auto-rows-min ml-auto mr-auto">
-<div class="grid-item text-center mr-0- col-span-3">
-  
-  This is the `layout: credits` slide.  It's a movie-like scrolling credits!
-</div>
-<div class="grid-item text-center mr-0- col-span-3">
-  <strong>Cast</strong><br> 
-  <span class="font-size-3 mt-0">(In order of appearance)</span>
-</div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Study 1</strong></div>
-<div class="grid-item col-span-2">Person 1 <i>as PhD student</i>&nbsp;<mdi-open-in-new class="font-size-3 mb-0.5" /><br/>Person 2 <i>as Co-PI</i>&nbsp;<mdi-open-in-new class="font-size-3 mb-0.5" /></div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Study 2</strong></div>
-<div class="grid-item col-span-2">Person 3 <i>as Postdoc</i>&nbsp;<mdi-open-in-new class="font-size-3 mb-0.5" /><br/>Person 4 <i>as Co-PI</i>&nbsp;<mdi-open-in-new class="font-size-3 mb-0.5" /></div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Experiments</strong></div>
-<div class="grid-item col-span-2">Smile 🫠</div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Funding</strong></div>
-<div class="grid-item col-span-2">National Science Foundation<br/>
-National Institute of Health</div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Slides</strong></div>
-<div class="grid-item col-span-2">
-Slidev<br/>
-Unocss<br/>
-Figma<br/>
-Vuejs<br/>
-Vite<br/>
-</div>
-<div class="grid-item col-span-3 text-center mt-180px mb-auto font-size-1.5rem"><strong>Questions?</strong></div>
-</div>
-
-
----
-layout: credits
-color: navy
-speed: 4.0
-loop: true
----
-
-<div class="grid text-size-4 grid-cols-3 w-3/4 gap-y-10 auto-rows-min ml-auto mr-auto">
-<div class="grid-item text-center mr-0- col-span-3">
-  
-  This one has `speed: 4.0` and `loop: true` in the front matter
-</div>
-<div class="grid-item text-center mr-0- col-span-3">
-  <strong>Cast</strong><br> 
-  <span class="font-size-3 mt-0">(In order of appearance)</span>
-</div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Study 1</strong></div>
-<div class="grid-item col-span-2">Person 1 <i>as PhD student</i>&nbsp;<mdi-open-in-new class="font-size-3 mb-0.5" /><br/>Person 2 <i>as Co-PI</i>&nbsp;<mdi-open-in-new class="font-size-3 mb-0.5" /></div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Study 2</strong></div>
-<div class="grid-item col-span-2">Person 3 <i>as Postdoc</i>&nbsp;<mdi-open-in-new class="font-size-3 mb-0.5" /><br/>Person 4 <i>as Co-PI</i>&nbsp;<mdi-open-in-new class="font-size-3 mb-0.5" /></div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Experiments</strong></div>
-<div class="grid-item col-span-2">Smile 🫠</div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Funding</strong></div>
-<div class="grid-item col-span-2">National Science Foundation<br/>
-National Institute of Health</div>
-<div class="grid-item text-right mr-4 col-span-1"><strong>Slides</strong></div>
-<div class="grid-item col-span-2">
-Slidev<br/>
-Unocss<br/>
-Figma<br/>
-Vuejs<br/>
-Vite<br/>
-</div>
-<div class="grid-item col-span-3 text-center mt-180px mb-auto font-size-1.5rem"><strong>Questions?</strong></div>
-</div>
-
-
----
-layout: image-left
-image: /images/photo.png
-class: mycoolclass
----
-
-<br />
-
-# Image left
-
-This is the `layout: image-left` layout.
-
----
-layout: image-right
-image: /images/photo2.png
-slide_info: false
-class: mycoolclass
----
-
-# Image right
-
-This is the `layout: image-right` layout.
-
----
 layout: image
 image: /images/photo.png
 title: Image Layout
 ---
 
----
-layout: iframe-left
-title: iframe Left Layout
-# the web page source
-url: https://gureckislab.org
-
-# a custom class name to the content
-class: my-cool-content-on-the-right
----
-
-<br />
-
-# This is a website on the left
-
-This is useful for showing a website but loads live on the web so requires and internet connection.
-
----
-layout: iframe-right
-title: iframe Right Layout
-# the web page source
-url: https://gureckislab.org
-
-# a custom class name to the content
-class: my-cool-content-on-the-right
-slide_info: false
----
-
-# This is a website on the right
-
-This is useful for showing a website but loads live on the web so requires and internet connection.
 
 ---
 layout: iframe
@@ -859,686 +848,3 @@ slide_info: false
 ---
 
 
----
-layout: two-cols-title
-columns: is-6
-align: l-lt-lt
-title: Two Cols Title - Header (Info)
----
-
-:: title ::
-
-# `two-cols-title`
-
-:: left ::
-
-This is `layout: two-cols-title`. 
-
-- There are three slots: `:: title ::`, `:: left ::`, and `:: right ::` along with the default which is implicit before any named slots.
-
-- It additionally provides three configuration options in the slide YAML front matter:
-  `color`, `columns` and `align`.
-
-:: right ::
-
-- `color` is the color scheme.
-
-- `columns` is the relative spacing given to the left versus right column. The overall space is divided into 12 columns. Instructions like `is-5` will give 5 units to the left and 7 to the right.
-
-- The <code>align</code> parameter determines how the columns look. The notation is for example
-  <code>align: l-cm-cm</code>. The first part is for the header, the second for the left column, the third part is for the right column. The first letter is (<code>c</code> for center, <code>l</code> for left, <code>r</code> for right), the second letter
-  is vertical alignment (<code>t</code> for top, <code>m</code> for middle, <code>b</code> for bottom). Only c/l/r works for the header.
-
-
-
-
-
----
-layout: two-cols-title
-columns: is-2
-align: l-lt-lt
-title: Two Cols Title - Header (is-2)
----
-
-:: title ::
-
-<div class='w-full h-20 bg-indigo-100'>
-</div>
-
-
-:: left ::
-<div class='w-full h-100 bg-gray-300'></div>
-
-:: right ::
-<div class='w-full h-100 bg-pink-300'></div>
-
-
----
-layout: two-cols-title
-columns: is-4
-align: l-lt-lt
-title: Two Cols Title - Header (is-4)
----
-
-:: title ::
-
-<div class='w-full h-20 bg-indigo-100'>
-</div>
-
-
-:: left ::
-<div class='w-full h-100 bg-gray-300'></div>
-
-:: right ::
-<div class='w-full h-100 bg-pink-300'></div>
-
----
-layout: two-cols-title
-columns: is-6
-align: l-lt-lt
-title: Two Cols Title - Header (is-6)
----
-
-:: title ::
-
-<div class='w-full h-20 bg-indigo-100'>
-</div>
-
-
-:: left ::
-<div class='w-full h-100 bg-gray-300'></div>
-
-:: right ::
-<div class='w-full h-100 bg-pink-300'></div>
-
-
----
-layout: two-cols-title
-columns: is-8
-align: l-lt-lt
-title: Two Cols Title - Header (is-8)
----
-
-:: title ::
-
-<div class='w-full h-20 bg-indigo-100'>
-</div>
-
-
-:: left ::
-<div class='w-full h-100 bg-gray-300'></div>
-
-:: right ::
-<div class='w-full h-100 bg-pink-300'></div>
-
-
----
-layout: two-cols-title
-columns: is-10
-align: l-lt-lt
-title: Two Cols Title - Header (is-10)
----
-
-:: title ::
-
-<div class='w-full h-20 bg-indigo-100'>
-</div>
-
-
-:: left ::
-<div class='w-full h-100 bg-gray-300'></div>
-
-:: right ::
-<div class='w-full h-100 bg-pink-300'></div>
-
-
----
-layout: two-cols-title
-columns: is-10
-align: l-lt-lt
-titlepos: b
-title: Two Cols Title - Footer (is-10)
----
-
-:: title ::
-
-<div class='w-full h-20 bg-indigo-100'>
-</div>
-
-
-:: left ::
-<div class='w-full h-100 bg-gray-300'></div>
-
-:: right ::
-<div class='w-full h-100 bg-pink-300'></div>
-
-
----
-layout: two-cols-title
-columns: is-4
-align: l-lt-lt
-titlepos: b
-title: Two Cols Title - no title (is-4)
----
-
-
-
-:: left ::
-<div class='w-full h-120 bg-gray-300'></div>
-
-:: right ::
-<div class='w-full h-120 bg-pink-300'></div>
-
-
-
-
-
-
----
-layout: side-title
-side: l
-color: violet
-titlewidth: is-4
-align: rm-lm
-title: Side Title Layout (Another)
----
-
-:: title ::
-
-# `side-title`
-
-# <mdi-arrow-right />
-
-:: content ::
-
-This is `layout: side-title` with `side: right` in the front matter.
-
-```yaml
-side: left
-color: violet
-titlewidth: is-4
-align: rm-lm
-```
-
-
-
----
-layout: side-title
-side: r
-color: pink-light
-titlewidth: is-6
-align: lm-lb
-title: Side Title Layout (Another)
----
-
-:: title ::
- 
-# `side-title`
-
-# <mdi-arrow-right />
-
-:: content ::
-
-This is `layout: side-title` with `side: right` in the front matter.
-
-```yaml
-side: right
-color: pink-light
-titlewidth: is-6
-align: lm-lb
-```
-
-
----
-layout: top-title
-color: violet
-align: l
-title: Top Title (Another)
----
-
-:: title ::
-
-# `top-title`: A variation with different parameters
-
-
-:: content ::
-
-Todd has used this navy color on many projects in the past. This is a top title layout.
-
-I sort of like the `###` font style the best.
-
-```yaml
-layout: top-title
-color: violet
-titlewidth: is-2
-align: lm
-```
-
----
-layout: top-title-two-cols
-color: navy
-columns: is-6
-align: l-lt-lt
-title: Top Title (Another)
----
-
-
-:: title ::
-
-### `top-title-two-cols`: A variation with two columns
-
-:: left ::
-
-- This is the left column
-- This is a nice way to add color and distinction to a slide
-- Options are `columns` which is the size of the left column, `color` (default `light`), and `align` which is the alignment of the title and columns (e.g., `l-lt-lt`)
-
-:: right ::
-
-- This is the right column
-- This is a nice way to add color and distinction to a slide
-
-
----
-layout: default
----
-
-# Extras
-
-In addition to these custom layouts, the **Neversink** theme includes a few custom components that can be used in your slides. These include sticky notes, speech bubbles, cute icons, QR codes, and more.  The next few slides walks through them:
-
-<div class="ns-c-tight">
-
-- admonitions
-- sticky notes
-- speech bubbles
-- cute icons
-- QR codes
-</div>
-
-
----
-layout: two-cols-title
-columns: is-6
-title: Admonitions
-dragPos:
-  admon: Left,Top,Width,Height,Rotate
-  "'admon'": 55,300,287,106
----
-
-<!-- <Admonition title="V-draggable" color='teal-light' width="300px" v-drag="[93,303,300,145,-14]">
-If you want to `v-drag` an admonition, you should set the width to a fixed value.
-</Admonition> -->
-
-:: title ::
-
-# Admonitions
-
-:: left ::
-
-- Admonitions are boxes that you can use to call out things.
-
-<Admonition title="Custom title" color='amber-light'>
-This is my admon message
-</Admonition>
-
-:: right ::
-
-<AdmonitionType type='note' >
-This is note text
-</AdmonitionType>
-
-<!--
-> [!note]
-> This is note text
--->
-
-<AdmonitionType type='important' >
-This is important text
-</AdmonitionType>
-
-<AdmonitionType type='tip' >
-This is a tip
-</AdmonitionType>
-
-<AdmonitionType type='warning' >
-This is a tip
-</AdmonitionType>
-
-<AdmonitionType type='caution' >
-This is warning text
-</AdmonitionType>
-
----
-layout: two-cols-title
-columns: is-6
-title: Bubbles
----
-
-<SpeechBubble position="l" color='sky' shape="round"  v-drag="[83,364,274,109]">
-
-Hello, I'm a **speech bubble**! I'm a longer speech bubble. I'm still going.
-</SpeechBubble>
-
-:: title ::
-
-# Bubbles
-
-:: left ::
-
-- Bubbles are moveable elements that act as speech bubbles
-- They can be configured for where you want the arrow to point
-- The can be move around if you enable `v-drag` on the element
-
-:: right ::
-
-<SpeechBubble position="bl" color='amber-light' shape="round">
-
-Hello, I'm a **speech bubble**! I'm a longer speech bubble. I'm still going.
-Hello, I'm a **speech bubble**! I'm a longer speech bubble. I'm still going.
-Hello, I'm a **speech bubble**! I'm a longer speech bubble. I'm still going.
-</SpeechBubble>
-
----
-layout: default
-title: Sticky Notes
----
-
-<StickyNote color="amber-light" textAlign="left" width="180px" title="Title" v-drag="[66,318,185,171]">
-
-Hello, I'm a **sticky note**.
-</StickyNote>
-
-<StickyNote color="sky-light" textAlign="left" width="180px" title="This is my title" v-drag="[375,306,180,180,-15]">
-
-Hello, I'm also a **sticky note** but am blue sky title.
-</StickyNote>
-
-<StickyNote color="pink-light" textAlign="left" width="180px"  v-drag="[667,299,185,171,8]">
-
-Hello, I'm also a **sticky note** but I lack a title.
-</StickyNote>
-
-# Sticky Notes
-
-- Sticky notes are moveable elements you can use for notes.
-- Syntax is
-
-```js
-<StickyNote color="amber-light" textAlign="left" width="180px" title="Title" v-drag>
-  Hello, I'm a **sticky note**.
-</StickyNote>
-```
-
----
-layout: default
-title: Kawaii 1
----
-
-# Kawaii
-
-- Kawaii is a Japanese term that means cute
-
-<IceCream :size="80" mood="sad" color="#FDA7DC" />
-<IceCream :size="80" mood="shocked" color="#FDA7DC" />
-<IceCream :size="80" mood="happy" color="#FDA7DC" />
-<IceCream :size="80" mood="blissful" color="#FDA7DC" />
-<IceCream :size="80" mood="lovestruck" color="#FDA7DC" />
-<IceCream :size="80" mood="excited" color="#FDA7DC" />
-<IceCream :size="80" mood="ko" color="#FDA7DC" /><br/>
-
-<BackPack :size="80" mood="sad" color="#FFD882" />
-<BackPack :size="80" mood="shocked" color="#FFD882" />
-<BackPack :size="80" mood="happy" color="#FFD882"/>
-<BackPack :size="80" mood="blissful" color="#FFD882" />
-<BackPack :size="80" mood="lovestruck" color="#FFD882" />
-<BackPack :size="80" mood="excited" color="#FFD882" />
-<BackPack :size="80" mood="ko" color="#FFD882" /><br/>
-
-<Cat :size="80" mood="sad" color="#FFD882" />
-<Cat :size="80" mood="shocked" color="#FFD882" />
-<Cat :size="80" mood="happy" color="#FFD882"/>
-<Cat :size="80" mood="blissful" color="#FFD882" />
-<Cat :size="80" mood="lovestruck" color="#FFD882" />
-<Cat :size="80" mood="excited" color="#FFD882" />
-<Cat :size="80" mood="ko" color="#FFD882" /><br/>
-
-<Browser :size="50" mood="lovestruck" color="#61DDBC" />
-<Mug :size="50" mood="lovestruck" color="#61DDBC" />
-<Planet :size="50" mood="lovestruck" color="#61DDBC" />
-<SpeechBubbleGuy :size="50" mood="lovestruck" color="#d3d3d3" />
-<Ghost :size="50" mood="blissful" color="#E0E4E8" />
-<CreditCard :size="50" mood="blissful" color="#E0E4E8" />
-
----
-layout: default
-title: QR Codes
----
-
-# In-line QR Codes
-
-- Send people to a url with a easy to configure QR code
-
-```vue
-<QRCode value="https://gureckislab.org" :size="200" render-as="svg" />
-```
-
-<br />
-Result:
-
-<QRCode value="https://gureckislab.org" :size="200" render-as='svg'/>
-
-
-
----
-layout: default
-title: Lines
----
-
-# Lines
-
-<Line :x1=0 :y1=0 :x2=200 :y2=200 :width=2 color='red' v-drag="[326,136,250,250]" />
-
----
-layout: side-title
-side: left
-color: violet
-titlewidth: is-4
-align: rm-lt
-title: Code Example
----
-
-<SpeechBubble position="br" shape="round" borderWidth="0" animation="float" v-drag="[19,335,261,83]">
-
-Slidev is great at code formatting!
-</SpeechBubble>
-
-:: title ::
-
-# <mdi-code-braces /> Code
-
-<IceCream :size="80" mood="excited" color="#FDA7DC" v-drag="[232,444,50,80]" />
-
-:: content ::
-
-Plain javascript:
-
-```js
-console.log('Hello, World!')
-```
-
-Highlight lines 2 and 3:
-
-```ts {2,3}
-function helloworld() {
-  console.log('Hello, World!')
-  console.log('Hello, World!')
-  console.log('Hello, World!')
-}
-```
-
-Crazy clicking through
-
-```ts {2,3|5|all}
-function helloworld() {
-  console.log('Hello, World!')
-  console.log('Hello, World!')
-  console.log('Hello, World!')
-  console.log('Hello, World!')
-  console.log('Hello, World!')
-  console.log('Hello, World!')
-}
-```
-
----
-layout: side-title
-side: left
-color: violet
-titlewidth: is-4
-align: rm-lt
-title: Code Example
----
-
-
-:: title ::
-
-# <mdi-code-braces /> Code
-
-More cool code stuff
-
-:: content ::
-
-Scrollable with clicks 🤯
-
-```ts {2|3|7|12}{maxHeight:'100px'}
-function helloworld() {
-  console.log('Hello, World 1!')
-  console.log('Hello, World 2!')
-  console.log('Hello, World 3!')
-  console.log('Hello, World 4!')
-  console.log('Hello, World 5!')
-  console.log('Hello, World 6!')
-  console.log('Hello, World 7!')
-  console.log('Hello, World 8!')
-  console.log('Hello, World 9!')
-  console.log('Hello, World 10!')
-  console.log('Hello, World 11!')
-}
-```
-
-You can even edit the code in the browser
-
-```ts {monaco}
-console.log('HelloWorld')
-```
-
-You can even run the code in the browser
-
-```ts {monaco-run} {showOutputAt:'+1'}
-function distance(x: number, y: number) {
-  return Math.sqrt(x ** 2 + y ** 2)
-}
-console.log(distance(3, 4))
-```
-
----
-layout: side-title
-side: left
-color: lime
-titlewidth: is-4
-align: rm-lt
-title: LaTeX Example
----
-
-:: title ::
-
-# <mdi-math-integral-box /> LaTeX Equations
-
-Yeah it does this fine
-
-<Mug :size="80" mood="excited" color="#FDA7DC" v-drag="[342,288,77,80]" />
-
-:: content ::
-
-Inline equations: $\sqrt{3x-1}+(1+x)^2$
-
-Block rendering:
-
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-Line highlighting with clicks!
-
-$$
-{1|3|all}
-\begin{array}{c}
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-\nabla \cdot \vec{\mathbf{B}} & = 0
-\end{array}
-$$
-
----
-layout: side-title
-side: left
-color: sky
-titlewidth: is-4
-align: rm-cm
-title: Mermaid Example
----
-
-:: title ::
-
-# Mermaid Diagrams
-
-Everyone is talking about this
-
-:: content ::
-
-```mermaid
-sequenceDiagram
-  Alice->John: Hello John, how are you?
-  Note over Alice,John: A typical interaction
-```
-
----
-layout: side-title
-side: left
-color: sky
-titlewidth: is-4
-align: rm-cm
-title: Mermaid Example
----
-
-:: title ::
-
-# Mermaid Diagrams
-
-Everyone is talking about this
-
-:: content ::
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-A mermaid diagram with two circles side by side horizontally with an arrow pointing from the left circle to the right circle
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph LR
-A([Circle 1]) --> B((Circle 2))
-```

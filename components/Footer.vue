@@ -10,6 +10,10 @@ export default {
     date: {
         type: Date,
     },
+    slidenum: {
+      default: true,
+      type: Boolean,
+    },
   }
 }
 </script>
@@ -20,12 +24,12 @@ export default {
       <img src="./images/cern-awake.png" width="120"> </img>
     </div>
     <div id="author-meeting">
-      <span>{{ author }}</span> 
-      <span v-if="meeting">&nbsp; | &nbsp; {{ meeting }}</span>
+      <span v-if="meeting && author">{{ author }} &nbsp; | &nbsp; {{ meeting }}</span>
+      <span v-else>{{ author }} {{ meeting }}</span>
     </div>
     <div id="date-slide">
       <span class="flex-grow-1">{{date}}</span>
-      <span><SlideCurrentNo /></span>
+      <span v-if="slidenum"><SlideCurrentNo /></span>
     </div>
   </div>
 </template>

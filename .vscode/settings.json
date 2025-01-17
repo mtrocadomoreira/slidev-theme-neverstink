@@ -1,4 +1,9 @@
 {
   "slidev.force-enabled": true,
-  "slidev.include": ["**/slides.md", "example.md", "screenshot.md"]
+  "slidev.include": [
+    "**/slides.md",
+    "example.md",
+    "screenshot.md"
+  ],
+  "slidev.port": 3040
 }

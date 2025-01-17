@@ -17,8 +17,8 @@ const colorscheme = computed(() => {
 })
 </script>
 <template>
-  <div class="slidecolor slidev-layout full" :class="colorscheme">
-    <div class="my-auto w-full h-full">
+  <div class="slidecolor slidev-layout full flex flex-col" :class="colorscheme">
+    <div class="w-full h-full">
       <CreditScroll :speed="props.speed" :loop="props.loop">
         <slot name="default"></slot>
       </CreditScroll>

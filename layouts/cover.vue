@@ -1,112 +1,73 @@
-<script setup lang="js">
+<script setup lang="ts">
 import { computed } from 'vue'
-//import { handleBackground } from '../layoutHelper'
+import { handleBackground, handleAuthor } from '../layoutHelper'
+import Institutes from '../components/Institutes.vue';
+import TitleRenderer from '#slidev/title-renderer'
 
 const props = defineProps({
-  // background: {
-  //   default: '',
-  // },
-  color: {
-    default: 'white',
+  authors: {
+    type: Object as () => Record<string, string>,
+    default: () => ({})
+  },
+  meeting: {
+    type: String,
+    default: '',
+  },
+  date: {
+    type: String,
+    default: new Date().toLocaleDateString(),
   },
 })
 
-//const style = computed(() => handleBackground(props.background, true))
+// Process authors from dictionary to author name as key, and author affiliation as value
+const authorList: string[] = props.authors.map(author => Object.keys(author)[0]);
 
-const colorscheme = computed(() => {
-  return `neversink-${props.color}-scheme`
-})
+const [authorsDict, instituteDict] = handleAuthor(props.authors);
+console.log(authorsDict);
+console.log(instituteDict);
 </script>
 
 <template>
-  <div class="slidev-layout cover h-full slidecolor" :class="colorscheme">
-    <div class="myauto w-full">
-      <slot />
+  <div class="slidev-layout slidev-layout--vertlines">
+    <img class="slidev-layout cover background" src = "../styles/cover_background_clean.svg" alt="My Happy SVG"/>
+    <div class="slidev-layout cover">
+      <div class="slidev-layout cover cover-container">
+        <slot/>
+
+        <div v-if="authorList.length">
+          <p v-if="authorList.length > 1">
+            <template v-for="(author, idx) in authorList">
+              <span :class="{ 'underline': idx === 0 }">{{ author }}</span>
+              <sup v-if="authorsDict[author].instituteNum.length > 0">
+                <template v-for="(num, index) in authorsDict[author].instituteNum">
+                  <span v-if="index > 0">, </span>
+                  <span>{{ num }}</span>
+                </template>
+              </sup>
+              <span v-if="(idx < authorList.length - 1 && authorList.length >= 3)">, </span>
+              <span v-if="idx === authorList.length - 2"> and </span>
+            </template>
+          </p>
+          <p v-else-if="authorList.length===1" >
+            <template v-for="(author, idx) in authorList">
+              <span>{{ author }}</span>
+            </template>
+          </p>
+          <Institutes         
+            :filled="false"
+            :separator="false"
+            x="l"
+            :footnotes="instituteDict"
+            :numbers="authorList.length>1"
+            />
+        </div>
+ 
+      </div>
+
     </div>
-    <div class="note absolute bottom-3">
-      <slot name="note" />
-    </div>
+    <Footer 
+        :meeting="$slidev.configs.meeting"
+        :slidenum=false>
+    </Footer>
   </div>
 </template>
-
-<style>
-/* cover slide type */
-
-.slidev-layout.cover {
-  font-family: var(--neversink-main-font);
-  font-weight: 300;
-}
-
-.slidev-layout.cover {
-  margin-bottom: 0px;
-}
-
-.slidev-layout.cover p {
-  letter-spacing: 0.05em;
-  font-size: 0.85em;
-  line-height: 1.4em;
-}
-
-.slidev-layout.cover strong {
-  font-weight: 500;
-}
-
-.slidev-layout.cover .note {
-  font-weight: 300;
-  font-size: 0.9rem;
-  margin-right: 200px;
-}
-
-.slidev-layout.cover h1 {
-  font-family: var(--neversink-title-font);
-  font-weight: 500;
-  font-size: 3em;
-  line-height: normal;
-  margin-bottom: 0.9rem;
-  margin-top: 40px;
-}
-
-.slidev-layout.cover h2 {
-  font-family: var(--neversink-title-font);
-  font-weight: 500;
-  font-size: 2.5em;
-  line-height: normal;
-  margin-bottom: 0.9rem;
-  margin-top: 40px;
-}
-
-.slidev-layout.cover h3 {
-  font-family: var(--neversink-title-font);
-  font-weight: 500;
-  font-size: 1.9em;
-  line-height: normal;
-  margin-bottom: 0.9rem;
-  margin-top: 40px;
-}
-
-.slidev-layout.cover h1 + p {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-}
-
-.slidev-layout.cover h2 + p {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-}
-
-.slidev-layout.cover h3 + p {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-}
-
-/* this is specific to this instance */
-.slidev-layout.cover h1,
-.slidev-layout.cover h2,
-.slidev-layout.cover h3 {
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--neversink-highlight-color);
-}
-</style>
