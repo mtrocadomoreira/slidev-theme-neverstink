@@ -283,3 +283,8 @@ div.left-col, div.right-col {
       margin-top: 0;
     }
   }
+
+
+.no-bullets ul {
+    list-style-type: '';
+}
