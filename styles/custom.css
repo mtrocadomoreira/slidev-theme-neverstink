@@ -241,7 +241,7 @@
     color: #767676;
     font-size: small;
     padding: 0 1.5rem;
-    display: grid;
+    display: flex;
     grid-column-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -252,12 +252,14 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        flex-grow: 1;
     }
 
     #author-meeting {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-grow: 4;
     }
 
     #date-slide {
@@ -265,6 +267,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-grow: 1;
     }
 }
 
