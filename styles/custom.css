@@ -1,9 +1,9 @@
 
 :root {
     --slidev-code-background: #f9f4ef;
-    --slidev-code-font-size: 15px;
+    --slidev-code-font-size: 20px;
+    --table-theme-color: rgb(189, 191, 194);
 }
-
 
 
 /* inline code blocks */
@@ -36,6 +36,37 @@
             ul {
                 list-style: "-";
             }
+        }
+    }
+
+    table {
+        align-self: center;
+        width: fit-content;
+        font-size: 0.9rem;
+        color: var(--table-theme-color);
+        thead > tr {
+            border-bottom: 3px solid color-mix(in srgb, currentColor 40%, transparent);
+            > th {
+                font-weight: 600;
+                padding: 4px 12px;
+                color: #000;
+            }
+        }
+        tbody {
+
+            > tr:nth-child(odd) {
+                background: rgb(156 163 175 / 0.1);
+                background: color-mix(in srgb, currentColor 10%, transparent);
+            }
+            
+            > tr {
+                border-bottom-width: 0;
+                > td {
+                    padding: 4px 12px;
+                    color: #000;
+                }
+            }
+            
         }
     }
 }

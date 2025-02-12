@@ -166,3 +166,8 @@
   color: var(--neversink-text-color);
   border-color: var(--neversink-border-color);
 }
+
+.ns-c-bind-table,
+.ns-c-mixin {
+  --table-theme-color: var(--neversink-bg-color);
+}
