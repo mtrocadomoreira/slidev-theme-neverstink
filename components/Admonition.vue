@@ -40,30 +40,29 @@ const colorscheme = computed(() => {
   margin: 10px;
   margin-left: 0;
   margin-top: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 16px;
   color: inherit;
   border-radius: 6px;
-  font-size: 0.75em;
   width: v-bind(props.width);
   font-family: var(--neversink-main-font);
-  font-size: 0.85rem;
 }
 
-.markdown-alert p {
+.markdown-alert p:not(first-child) {
   margin: 0;
   margin-bottom: 2px;
+  font-size: 0.85rem;
 }
 .markdown-alert > :first-child {
   margin-top: 0;
 }
 .markdown-alert > :last-child {
-  margin-bottom: 0;
+  margin-bottom: 2px;
 }
 .markdown-alert.markdown-alert-custom {
   background-color: var(--neversink-admon-bg-color);
   color: var(--neversink-admon-text-color);
-  border: 1px solid var(--neversink-admon-border-color);
-  border-left: 6px solid var(--neversink-admon-border-color);
+  border: 2px solid var(--neversink-admon-border-color);
+  border-left: 7px solid var(--neversink-admon-border-color);
 }
 .markdown-alert .markdown-alert-title-custom {
   display: flex;
@@ -71,6 +70,8 @@ const colorscheme = computed(() => {
   position: relative;
   font-weight: 700;
   color: var(--neversink-admon-text-color);
+  font-size: 1rem;
+  margin-bottom: 8px;
 }
 @media print {
   .markdown-alert .markdown-alert-title:before {
