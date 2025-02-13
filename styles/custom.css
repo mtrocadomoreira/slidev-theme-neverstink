@@ -333,5 +333,5 @@ div.left-col, div.right-col {
 
 
 .no-bullets ul {
-    list-style-type: '';
+    list-style-type: none;
 }
