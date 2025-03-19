@@ -32,7 +32,10 @@ console.log(instituteDict);
     <img class="slidev-layout cover background" src = "../styles/cover_background_clean.svg" alt="My Happy SVG"/>
     <div class="slidev-layout cover">
       <div class="slidev-layout cover cover-container">
-        <slot/>
+
+        <div class="slidev-layout cover cover-container title-container">
+          <slot/>
+        </div>
 
         <div v-if="authorList.length">
           <p v-if="authorList.length > 1">

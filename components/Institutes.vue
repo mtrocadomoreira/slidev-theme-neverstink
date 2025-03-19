@@ -6,7 +6,7 @@
     >
       <hr v-if="separator" />
       <ul
-        class="!list-none ns-c-tight"
+        class="!list-none ns-c-tight institutes-cover"
         v-bind:class="{
           'justify-start': x === 'l',
           'justify-end': x === 'r',
