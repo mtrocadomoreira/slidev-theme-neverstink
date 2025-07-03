@@ -31,6 +31,10 @@ const alignment = computed(() => {
       </div> 
        <!-- Content container will render everything else -->
       <div class="content-container two-cols">
+        <!-- Top slot for content in the top row -->
+        <div v-if="$slots.top" class="top-row" :class="alignment.t">
+          <slot name="top" />
+        </div>
         <div v-if="$slots.left" class="left-col" :class="alignment.l">
           <slot name="left" />
         </div>
@@ -55,11 +59,19 @@ const alignment = computed(() => {
 .content-container.two-cols {
   display: grid;
   grid-template-columns: repeat(12, 1fr); /* 12 columns */
-  grid-template-rows: 1fr; /* no footer and content */
+  grid-template-rows: auto 1fr auto; /* top row, main content, footer */
+}
+
+/* Top row spans full width */
+.top-row {
+  grid-area: 1 / 1 / 2 / span 12; /* full width in first row */
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .end-footer {
-  grid-area: 4 / 1 / 5 / span 12; /* full width */
+  grid-area: 3 / 1 / 4 / span 12; /* full width in third row */
   margin-bottom: 1rem;
 }
 
@@ -78,7 +90,6 @@ const alignment = computed(() => {
   margin-right: 2.5rem;
   display: flex;
   flex-direction: column;
-
 }
 
 .two-cols .right-col {
@@ -87,7 +98,7 @@ const alignment = computed(() => {
   flex-direction: column;
 }
 
-/* 1-11 */
+/* Updated grid areas for main content row (now row 2) */
 .two-cols-footer .left-col {
   grid-area: 2 / 1 / 3 / span v-bind(colwidth.l);
 }
@@ -97,12 +108,10 @@ const alignment = computed(() => {
 }
 
 .two-cols .left-col {
-  grid-area: 1 / 1 / 2 / span v-bind(colwidth.l);
+  grid-area: 2 / 1 / 3 / span v-bind(colwidth.l);
 }
 
 .two-cols .right-col {
-  grid-area: 1 / v-bind(colwidth.l + 1) / 2 / span v-bind(colwidth.r);
+  grid-area: 2 / v-bind(colwidth.l + 1) / 3 / span v-bind(colwidth.r);
 }
-
 </style>
-
