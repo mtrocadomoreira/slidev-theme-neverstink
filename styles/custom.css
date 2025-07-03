@@ -23,13 +23,20 @@
         margin-bottom: 0.5em;
     }
 
+    h2 {
+        padding-bottom: 0.5em;
+    }
+
     p {
-        margin-top: 0.5em;
+        margin-top: 0em;
         margin-bottom: 0.5em;
+        line-height: 1.5;
     }
 
     ul {
         list-style: inherit;
+        margin-top: 0;
+        margin-bottom: 0.8em;
 
         ul {
             list-style: circle;
@@ -351,4 +358,10 @@ div.left-col, div.right-col {
 
 .no-bullets ul {
     list-style-type: none;
+}
+
+
+.c-bind-no-bg {
+  color: var(--neversink-text-color);
+  border-color: var(--neversink-border-color);
 }
