@@ -65,7 +65,7 @@ const alignment = computed(() => {
 /* Top row spans full width */
 .top-row {
   grid-area: 1 / 1 / 2 / span 12; /* full width in first row */
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
 }
