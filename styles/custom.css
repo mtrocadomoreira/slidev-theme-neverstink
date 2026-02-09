@@ -365,3 +365,33 @@ div.left-col, div.right-col {
   color: var(--neversink-text-color);
   border-color: var(--neversink-border-color);
 }
+
+.plot-grid-2x2-labels {
+    display: grid;
+    grid-template-columns: auto 1fr auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.plot-grid-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+}
+
+.plot-grid-label  span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    font-size: small;
+}
+
+.plot-grid-plot {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0; /* Allows flex items to shrink below content size */
+    width: auto;
+}
